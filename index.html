@@ -44,7 +44,7 @@
 		<section class="sectionEffect">
 			<div class="container">
 				<h1 class="effect">ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br/> ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-				<button class="button" type="submit">Заказать услугу</button>	
+				<button class="button" type="submit" data-modal-open>Заказать услугу</button>	
 			</div>
 		</section>
 		
@@ -102,9 +102,22 @@
 					<div class="container">
 				 		<h2 class="workTitle">Чем мы занимаемся</h2>
 							<ul class="workList">
-								<li class="workListItem"><img src="./images/PC.jpg" alt="Комп" width="370"></li>
-								<li class="workListItem"><img src="./images/telephone.jpg" alt="Телефон" width="370"></li>
-								<li class="workListItem"><img src="./images/tablet.jpg" alt="Планшет" width="370"></li>
+
+								<div class="workWrite">
+									<li class="workListItem"><img src="./images/PC.jpg" alt="Комп" width="370"></li>
+									<p class="workText">Десктопные приложения</p>
+								</div>
+								
+								<div class="workWrite">
+									<li class="workListItem"><img src="./images/telephone.jpg" alt="Телефон" width="370"></li>
+									<p class="workText">Мобильные приложения</p>
+								</div>
+
+								<div class="workWrite">
+									<li class="workListItem"><img src="./images/tablet.jpg" alt="Планшет" width="370"></li>
+									<p class="workText">Дизайнерские решения</p>
+								</div>
+
 							</ul>
 					</div>
 		</section>
@@ -372,5 +385,14 @@
 				</div>
 			</div>
 	</footer>
+	<div class="backDrop is-hidden" data-modal>
+		<div class="modal">
+			<button data-modal-close>
+				<img src="./images/close-black.svg" alt="">
+			</button>
+		</div>
+	</div>
+	<script src="./js/modal.js"></script>
+	</body>
 </body>
 </html>
