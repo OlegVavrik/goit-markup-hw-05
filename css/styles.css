@@ -13,6 +13,7 @@
   --background-Hero: rgba(47, 48, 58, 0.4);
   --background-footer-icons: rgba(255, 255, 255, 0.1);
   --color-icons: rgb(175, 177, 184, 1);
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 * {
   text-decoration: none;
@@ -85,7 +86,7 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.142;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .studio.current::after {
   margin-top: 32px;
@@ -126,7 +127,7 @@ body {
   font-size: 14px;
   line-height: 1.142;
   position: relative;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .portfolio:hover,
 .portfolio:focus {
@@ -160,7 +161,7 @@ body {
   font-size: 14px;
   line-height: 1.142;
   letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 
 .mail:hover,
@@ -181,7 +182,7 @@ body {
   font-size: 14px;
   line-height: 1.142;
   letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .tel:hover,
 .tel:focus {
@@ -303,14 +304,16 @@ body {
   display: flex;
 }
 .workText {
-  color: #ececec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgba(47, 48, 58, 0.8);
-  text-align: center;
-  width: 370px;
   height: 70px;
+  width: 370px;
   position: absolute;
+  color: var(--color-white);
   bottom: 0;
-  padding: 27px;
+  width: 370px;
 }
 
 /* Наша команда */
@@ -376,8 +379,8 @@ body {
   border-radius: 50%;
   width: 44px;
   height: 44px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms,
-    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--cubic-bezier),
+    background 250ms var(--cubic-bezier);
 }
 .iconTeam {
   width: 20px;
@@ -415,7 +418,7 @@ body {
   border-radius: 4px;
   justify-content: center;
   align-items: center;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms var(--cubic-bezier);
 }
 
 .iconClient {
@@ -425,7 +428,6 @@ body {
   width: 106px;
   height: 60px;
   background-color: var(--color-white);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .iconSvg:focus,
 .iconSvg:hover {
@@ -468,7 +470,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--footer-contact-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .contactFooter {
   padding-top: 9px;
@@ -511,7 +513,7 @@ body {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--cubic-bezier);
 }
 .footerIcon p {
   margin-bottom: 20px;
@@ -550,8 +552,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   padding: 6px 22px;
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms,
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 250ms var(--cubic-bezier),
+    color 250ms var(--cubic-bezier), box-shadow 250ms var(--cubic-bezier);
 }
 .buttonItem:not(:last-child) {
   margin-right: 8px;
@@ -575,7 +577,7 @@ body {
   flex-basis: calc(100% / 3 - var(--card-set-gap));
   margin-top: var(--card-set-gap);
   margin-left: var(--card-set-gap);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms var(--cubic-bezier);
 }
 .portfolioImg img {
   display: block;
@@ -618,16 +620,18 @@ body {
   height: 294px;
   background: rgba(33, 150, 243, 0.9);
   position: absolute;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms var(--cubic-bezier);
   transform: translateY(100%);
 }
-.portfolioItems:hover .portfolioOverlay {
-  transform: translateY(0);
+.portfolioLink {
+  color: var(--black-color);
 }
-/* .portfolioThumb:hover .portfolioOverlay {
-  transform: translateY(0);
-} */
-
+.portfolioLink:hover .portfolioOverlay {
+  transform: translate(0);
+}
+.portfolioLink:focus .portfolioOverlay {
+  transform: translate(0);
+}
 .portfolioThumbText {
   position: absolute;
   color: var(--color-white);
@@ -649,11 +653,12 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms var(--cubic-bezier);
 }
 .backDrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 .backDrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.8);
@@ -665,9 +670,10 @@ body {
   top: 50%;
   left: 50%;
   padding: 15px;
-  background: #ffffff;
+  background: var(--color-white);
   transform: scale(1) translate(-50%, -50%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms var(--cubic-bezier),
+    visibility 250ms var(--cubic-bezier);
 }
 
 .modal button {
@@ -678,7 +684,7 @@ body {
   align-items: center;
   border-radius: 50%;
   margin-left: auto;
-  background: #ffffff;
+  background: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
